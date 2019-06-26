@@ -48,7 +48,7 @@ pipeline {
               def server = Artifactory.server 'artifactory'
               def uploadSpec = """{
                 "files": [ {
-                  "pattern": "target/*.jar",
+                  "pattern": "**/target/*.jar",
                   "target": "example-repo-local/${BRANCH_NAME}/${BUILD_NUMBER}/" }
                 ] }"""
                 server.upload(uploadSpec)
