@@ -9,9 +9,7 @@ pipeline {
 
       }
       steps {
-        sh '''  cd example
-
-&& mvn clean package'''
+        sh 'mvn --file example/pom.xml  clean package'
         stash(name: 'build-test-artifacts', includes: '**/target/surefire-reports/TEST-*.xml, **/target/*.jar')
       }
     }
